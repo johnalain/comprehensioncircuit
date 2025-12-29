@@ -1,0 +1,66 @@
+The error message you're getting indicates that GitHub no longer supports using a password for Git operations. Instead, you'll need to use a Personal Access Token (PAT) for authentication.
+
+Here's what you need to do:
+
+Step 1: Generate a Personal Access Token (PAT)
+
+Go to your GitHub account.
+
+Click on your profile picture in the top right corner, then click on Settings.
+
+In the left sidebar, click Developer settings.
+
+Click on Personal access tokens under the "Access tokens" section.
+
+Click Generate new token.
+
+
+
+Select the necessary scopes (permissions) for your token. For typical Git operations, the "repo" scope should be enough.
+
+Generate the token and copy it. This token will be used as your password for Git operations.
+
+Step 2: Update Your Git Credentials
+
+Now that you have your token, you'll need to update your Git credentials:
+
+When prompted for your password during the git push command, instead of your GitHub password, paste the Personal Access Token that you just generated.
+
+For example:
+
+Username for 'https://github.com': johnalain
+Password for 'https://johnalain@github.com': [Paste your token here]
+
+
+If you have already saved your old credentials in your system's keychain or cache, you might want to delete them first so that Git will prompt you for new credentials.
+On Mac/Linux:
+git credential reject
+
+On Windows, you can go to the Windows Credential Manager and delete any entries for GitHub.
+
+
+Step 3: Test the Push Again
+After updating your credentials, try running the git push command again:
+git push -u origin main
+
+You should now be able to authenticate and push your changes to GitHub without any issues.
+Let me know if you run into any more problems!Create your first imageGot an idea? Try one of our new curated styles and filters or imagine something from scratch.Try nowNew Year EveGingerbreadParisian postcardSanta's helperIridecent metal portraitCandy landSketchHoliday portraitDramaticPlushieRetro animeBaseball bobbleheadDoodle3D glam dollSugar cookieFisheyeInkworkPop artOrnamentArt school
+Step 3: Test the Push Again
+
+After updating your credentials, try running the git push command again:
+
+git push -u origin main
+
+
+You should now be able to authenticate and push your changes to GitHub without any issues.
+
+Let me know if you run into any more problems!
+
+…or create a new repository on the command line
+echo "# comprehensioncircuit" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/johnalain/comprehensioncircuit.git
+git push -u origin main
